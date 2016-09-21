@@ -1,15 +1,14 @@
 import {
+  DEFAULT_STATE,
   setTeachers
 } from './actions';
 
-import {
-  SET_TEACHERS
-} from './constants';
+import constants from './constants';
 
 
-export function coreReducer(state, action) {
+export function coreReducer(state = DEFAULT_STATE, action) {
   switch (action.type) {
-  case SET_TEACHERS:
+  case constants.SET_TEACHERS:
     return setTeachers(state, action.teachers);
   default:
     return state;

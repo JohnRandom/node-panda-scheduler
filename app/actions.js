@@ -1,5 +1,7 @@
-import { fromJS } from 'immutable';
+import { fromJS, Map } from 'immutable';
 
+
+export const DEFAULT_STATE = Map();
 
 export function setTeachers(currentState, teachers) {
   return currentState.set('teachers', fromJS(teachers));

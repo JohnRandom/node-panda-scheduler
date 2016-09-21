@@ -1,1 +1,5 @@
-export SET_TEACHERS = 'SET_TEACHERS';
+const constants = {
+  SET_TEACHERS: 'SET_TEACHERS'
+};
+
+export default constants;
