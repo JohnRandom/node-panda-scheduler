@@ -6,8 +6,8 @@ import {
   addStudentToLesson,
   setStudentsForLesson,
   coreReducer
-} from '../app/reducers';
-import constants from '../app/constants';
+} from '../../app/reducers';
+import constants from '../../app/constants';
 import { expect } from 'chai';
 import { fromJS, Map } from 'immutable';
 

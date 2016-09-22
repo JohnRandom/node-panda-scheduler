@@ -5,9 +5,8 @@ import {
   addLesson,
   setStudentsForLesson,
   addStudentToLesson
-} from '../app/actions';
-import constants from '../app/constants';
-import { expect } from 'chai';
+} from '../../app/actions';
+import constants from '../../app/constants';
 
 
 describe('Actions', () => {
