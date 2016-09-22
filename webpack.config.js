@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use strict';
 
 var path = require('path');
@@ -43,5 +44,8 @@ module.exports = {
       test: /\.css$/,
       loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
     }]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
   }
 };
