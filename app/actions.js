@@ -1,4 +1,5 @@
 import constants from './constants';
+import $ from 'superagent';
 
 
 export function setTeachers(teachers) {
@@ -42,5 +43,19 @@ export function addStudentToLesson(lesson, student) {
     type: constants.ADD_STUDENT_TO_LESSON,
     lesson,
     student
+  };
+}
+
+export function getTeachers() {
+  return function getTeacherCallback(dispatch) {
+    $.get('/api/teachers')
+      .set('Accept', 'application/json')
+      .end((err, resp) => {
+        if (err) {
+          console.log('Error during getTeachers:', err);
+        } else {
+          dispatch(setTeachers(resp.body));
+        }
+      });
   };
 }

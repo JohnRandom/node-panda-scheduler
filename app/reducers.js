@@ -70,3 +70,5 @@ export function coreReducer(state = DEFAULT_STATE, action) {
     return state;
   }
 }
+
+export default coreReducer;
