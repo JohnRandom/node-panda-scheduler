@@ -2,6 +2,8 @@
 
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -12,6 +14,11 @@ const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
 
 const apiRouter = require('./api/routes');
+
+// These two have to go together, explained in:
+// https://github.com/ctavan/express-validator
+app.use(bodyParser.json());
+app.use(expressValidator());
 
 if (isDeveloping) {
   const compiler = webpack(config);
