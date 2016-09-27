@@ -1,5 +1,3 @@
-// Update with your config settings.
-
 const config = require('./local.knexfile');
 
 module.exports = {
