@@ -9,8 +9,8 @@ exports.up = function up(knex, Promise) {
       table.uuid('student_id').notNullable();
       table.timestamp('created_at').defaultTo(knex.fn.now());
 
-      table.foreign('lesson_id').references('lessons.id');
-      table.foreign('student_id').references('students.id');
+      table.foreign('lesson_id').references('lessons.id').onDelete('CASCADE');
+      table.foreign('student_id').references('students.id').onDelete('CASCADE');
 
       table.unique(['lesson_id', 'student_id']);
     })

@@ -9,10 +9,10 @@ exports.up = function up(knex, Promise) {
       table.time('time_ending').notNullable();
       table.boolean('is_cancelled').defaultTo(false);
       table.float('rating');
-      table.uuid('teacher_id');
+      table.uuid('teacher_id').notNullable();
       table.timestamp('created_at').defaultTo(knex.fn.now());
 
-      table.foreign('teacher_id').references('teachers.id');
+      table.foreign('teacher_id').references('teachers.id').onDelete('CASCADE');
     })
   ]);
 };
