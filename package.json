@@ -20,6 +20,7 @@
   "homepage": "https://github.com/JohnRandom/node-panda-scheduler",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/app/test_helpers.js \"test/app/**/*@(.js|.jsx)\"",
+    "test:server": "NODE_ENV=testing mocha --require ./test/api/test_helpers.js  --timeout 10000 \"test/api/**/*@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch --reporter min",
     "start": "node server",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",

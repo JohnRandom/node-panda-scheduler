@@ -1,9 +1,11 @@
 // Update with your config settings.
 
-const development = require('./local.knexfile');
+const config = require('./local.knexfile');
 
 module.exports = {
-  development: development,
+  development: config.development,
+
+  testing: config.testing,
 
   staging: {
     client: 'postgresql',

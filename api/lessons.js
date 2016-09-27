@@ -10,14 +10,17 @@ const TIMESTAMP = /([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
 router.get('/', (req, res) => {
   knex.select(
-    'id',
-    'name',
-    'description',
-    'weekday',
-    'time_starting',
-    'time_ending',
-    'teacher_id'
-  ).from('lessons').then((rows) => {
+    'lessons.id',
+    'lessons.name',
+    'lessons.description',
+    'lessons.weekday',
+    'lessons.time_starting',
+    'lessons.time_ending',
+    'lessons.teacher_id'
+  ).from('lessons')
+  .leftOuterJoin('lesson_attendees', 'lessons.id', 'lesson_id')
+  .leftOuterJoin('students', 'student_id', 'students.id')
+  .then((rows) => {
     res.json(rows);
   });
 });
@@ -70,7 +73,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id;
 
-  knex.select(
+  knex.first(
     'id',
     'name',
     'description',
